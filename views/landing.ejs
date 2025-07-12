@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>BlueBox</title>
+  <link rel="stylesheet" href="/style.css">
+</head>
+<body class="landing">
+  <div class="scene">
+    <div class="cube" onclick="openBox()">
+      <div class="face front">BlueBox</div>
+      <div class="face back"></div>
+      <div class="face right"></div>
+      <div class="face left"></div>
+      <div class="face top"></div>
+      <div class="face bottom"></div>
+    </div>
+  </div>
+
+  <script>
+    const cube = document.querySelector('.cube');
+
+    document.addEventListener('mousemove', (e) => {
+      const x = (e.clientX / window.innerWidth - 0.5) * 2;
+      const y = (e.clientY / window.innerHeight - 0.5) * -2;
+      cube.style.transform = `rotateX(${y * 20}deg) rotateY(${x * 40}deg)`;
+    });
+
+    function openBox() {
+      cube.classList.add('open');
+      setTimeout(() => {
+        window.location.href = "/vault";
+      }, 1200);
+    }
+  </script>
+</body>
+</html>

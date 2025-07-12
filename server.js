@@ -21,7 +21,11 @@ app.use(express.static('public'));
 
 app.set('view engine', 'ejs');
 
-app.get('/', (req, res) => {
+app.get('/' , (req, res) => {
+    res.render('landing');
+});
+
+app.get('/vault', (req, res) => {
     let data = [];
     if (fs.existsSync(DATA_FILE)) {
         const raw = fs.readFileSync(DATA_FILE, 'utf-8');
