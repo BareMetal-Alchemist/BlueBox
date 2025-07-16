@@ -79,6 +79,7 @@ body.landing {
   transform-style: preserve-3d;
   transform: rotateX(20deg) rotateY(20deg);
   transition: transform 0.8s ease;
+  z-index: 1;
 }
 
 .face {
@@ -94,6 +95,7 @@ body.landing {
   align-items: center;
   font-family: 'Segoe UI', sans-serif;
   text-shadow: 0 0 5px #00f0ff;
+  z-index: 1;
 }
 
 /* Cube face positions */
@@ -135,4 +137,13 @@ body.landing {
 }
 
 
-
+#p5-bg canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: 1;
+  visibility: visible;
+  display: block;
+}
