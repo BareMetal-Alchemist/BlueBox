@@ -34,6 +34,9 @@ app.get('/vault', (req, res) => {
     res.render('index', { title: 'BlueVault', data });
 });
 
+app.get('/something', (req, res) => {
+    res.render('something');
+});
 
 app.post('/api/upload-pass', (req, res) => {
     const { auth_token, machine, username, new_password, changed_by } = req.body;

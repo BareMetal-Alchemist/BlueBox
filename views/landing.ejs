@@ -13,7 +13,7 @@
   <div class="scene">
     <div class="cube" onclick="openBox()">
       <div class="face front">BlueBox</div>
-      <div class="face back"></div>
+      <div class="face back"> <img src = "ossc.png" width="180" height="180"/> </div>
       <div class="face right"></div>
       <div class="face left"></div>
       <div class="face top"></div>
@@ -31,26 +31,26 @@
   let currentRotateX = 0;
   let currentRotateY = 0;
 
-  // Mouse movement effect only when hovered
+
   document.addEventListener('mousemove', (e) => {
     if (isHovered) {
       const x = (e.clientX / window.innerWidth - 0.5) * 2;
       const y = (e.clientY / window.innerHeight - 0.5) * -2;
-      targetRotateX = y * 20; // More dramatic tilt
+      targetRotateX = y * 20; 
       targetRotateY = x * 40;
     }
   });
 
-  // Animation loop
+
   function animateCube() {
     if (isHovered) {
-      // Smoothly interpolate toward target rotation
+
       currentRotateX += (targetRotateX - currentRotateX) * 0.05;
       currentRotateY += (targetRotateY - currentRotateY) * 0.05;
     } else {
-      // Auto-rotate when not hovered
+      
       autoRotateY += 0.09;
-      autoRotateX -= 0.05;
+      autoRotateX -= 0.0;
       currentRotateX += (autoRotateX - currentRotateX) * 0.05;
       currentRotateY += (autoRotateY - currentRotateY) * 0.05;
     }
@@ -61,7 +61,7 @@
 
     animateCube();
 
-    // Hover detection
+   
     cube.addEventListener('mouseenter', () => {
       isHovered = true;
     });
