@@ -38,6 +38,18 @@ app.get('/something', (req, res) => {
     res.render('something');
 });
 
+app.post('/submit', (req, res) => {
+    let pw = req.body.password;
+    if (pw === 'password'){
+        console.log("yes");
+        res.sendStatus(200);
+    }
+    else {
+        res.sendStatus(401);
+    }
+});
+
+
 app.post('/api/upload-pass', (req, res) => {
     const { auth_token, machine, username, new_password, changed_by } = req.body;
 

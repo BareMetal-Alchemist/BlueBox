@@ -12,7 +12,12 @@
 
   <div class="scene">
     <div class="cube" onclick="openBox()">
-      <div class="face front">BlueBox</div>
+      <div class="face front">
+        <form id="loginForm">
+          <h1 id="BlueBox">BlueBox</h1>
+          <input type="text" id="password" name="password" placeholder="password">
+        </form>
+      </div>
       <div class="face back"> <img src = "ossc.png" width="180" height="180"/> </div>
       <div class="face right"></div>
       <div class="face left"></div>
@@ -23,6 +28,9 @@
 
   <script>
   const cube = document.querySelector('.cube');
+  const form = document.getElementById('loginForm');
+  const passwordInput = document.getElementById('password');
+
   let isHovered = false;
   let autoRotateX = 0;
   let autoRotateY = 0;
@@ -70,11 +78,27 @@
       isHovered = false;
     });
 
-    function openBox() {
-      cube.classList.add('open');
-      setTimeout(() => {
-        window.location.href = "/vault";
-      }, 1200);
+    async function openBox() {
+      const password = passwordInput.value;
+
+      const res = await fetch('/submit', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/x-www-form-urlencoded'
+        },
+        body: `password=${encodeURIComponent(password)}`
+      });
+      
+      if (res.ok){
+
+        cube.classList.add('open');
+
+        setTimeout(() => {
+          window.location.href = "/vault";
+        }, 1200);
+      } else {
+        alert("Invalid password");
+      }
     }
   </script>
 

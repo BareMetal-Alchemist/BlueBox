@@ -98,8 +98,9 @@ body.landing {
   z-index: 1;
 }
 
+
 /* Cube face positions */
-.front  { transform: translateZ(100px); }
+.front  { transform: translateZ(100px); display: flex; flex-direction: column; gap: 10px; }
 .back   { transform: rotateY(180deg) translateZ(100px); }
 .right  { transform: rotateY(90deg) translateZ(100px); }
 .left   { transform: rotateY(-90deg) translateZ(100px); }
@@ -147,3 +148,11 @@ body.landing {
   visibility: visible;
   display: block;
 }
+
+#BlueBox { 
+  color: #fff;
+  font-size: 24px;
+  font-family: 'Segoe UI', sans-serif;
+  text-shadow: 0 0 5px #00f0ff;
+}
+
