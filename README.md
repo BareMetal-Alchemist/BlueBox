@@ -1,2 +1,2 @@
 # BlueBox
-A Little Blue Box
+Centralize password storing for CCDC
